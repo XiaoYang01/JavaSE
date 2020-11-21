@@ -2,10 +2,10 @@ import java.math.BigDecimal;
 import java.util.Scanner;
 
 /**
- * @Author:xiaoyang01
- * @Date：2020/11/21 15:55
+ * @Author:XiaoYang01
+ * @Date:2020/11/21 23:36
  */
-public class Test13_2 {
+public class Test13_1 {
     /**
      * 一、请通过代码封装，实现如下需求：
      * 	编写一个类Book，代表教材:
@@ -51,83 +51,94 @@ public class Test13_2 {
         accountss.withdraw();
         //Bigdecimal默认值
         //System.out.println(accountss.getBalance());
+        accountss.withdrawal();
     }
 }
-    //账户类
-class Accountss{
+//账户类
+class Accountss {
     //账户
-        private int id;
+    private int id;
     //余额
-        private BigDecimal balance;
+    private BigDecimal balance;
     //年利润:annualInterestRate
-        private double annualInterestRate;
+    private double annualInterestRate;
     //构造
 
-        public Accountss(int id, BigDecimal balance, double annualInterestRate) {
-            this.id = id;
-            this.balance = balance;
-            this.annualInterestRate = annualInterestRate;
-        }
+    public Accountss(int id, BigDecimal balance, double annualInterestRate) {
+        this.id = id;
+        this.balance = balance;
+        this.annualInterestRate = annualInterestRate;
+    }
 
-        public Accountss() {
-        }
+    public Accountss() {
+    }
     //set,get
 
-        public int getId() {
-            return id;
-        }
+    public int getId() {
+        return id;
+    }
 
-        public BigDecimal getBalance() {
-            return balance;
-        }
+    public BigDecimal getBalance() {
+        return balance;
+    }
 
-        public double getAnnualInterestRate() {
-            return annualInterestRate;
-        }
+    public double getAnnualInterestRate() {
+        return annualInterestRate;
+    }
 
-        public void setId(int id) {
-            this.id = id;
-        }
+    public void setId(int id) {
+        this.id = id;
+    }
 
-        public void setBalance(BigDecimal balance) {
-            this.balance = balance;
-        }
+    public void setBalance(BigDecimal balance) {
+        this.balance = balance;
+    }
 
-        public void setAnnualInterestRate(double annualInterestRate) {
-            this.annualInterestRate = annualInterestRate;
+    public void setAnnualInterestRate(double annualInterestRate) {
+        this.annualInterestRate = annualInterestRate;
+    }
+    BigDecimal withdrawValue_2;
+    //取款方法：withdraw()
+    public void withdraw() {
+        if (getBalance() == null) {
+            System.out.println("无法取款！余额：" + getBalance());
+            return;
         }
-        //取款方法：withdraw()
-        public void withdraw(){
-            if(getBalance() == null){
-                System.out.println("无法取款！余额："+getBalance());
-                return;
-            }
-            BigDecimal withdrawValue_1 = getBalance();
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("请输入取款金额：");
-            BigDecimal withdrawValue = scanner.nextBigDecimal();
-            int a= withdrawValue.compareTo(withdrawValue_1);
-            //取款金额小于原金额
-            if(a < 0){
-                BigDecimal withdrawValue_2 = withdrawValue_1.subtract(withdrawValue);
-                System.out.println("剩余余额为："+withdrawValue_2);
-                return;
-            }
-            //取款金额等于原金额
-            if(withdrawValue.equals(withdrawValue_1)){
-                BigDecimal withdrawValue_2 = withdrawValue_1.subtract(withdrawValue);
-                System.out.println("取款成功，剩余余额为："+withdrawValue_2);
-                return;
-            }
-            //取款金额大于原金额
-            if(a > 0){
-                System.out.println("取款失败，你输入的取款金额不对，请退出系统，检查余额重新取款");
-                return;
-            }
+        BigDecimal withdrawValue_1 = getBalance();
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("请输入取款金额：");
+        BigDecimal withdrawValue = scanner.nextBigDecimal();
+        int a = withdrawValue.compareTo(withdrawValue_1);
+        //取款金额小于原金额
+        if (a < 0) {
+             withdrawValue_2 = withdrawValue_1.subtract(withdrawValue);
+            System.out.println("剩余余额为：" + withdrawValue_2);
+            return;
         }
+        //取款金额等于原金额
+        if (withdrawValue.equals(withdrawValue_1)) {
+             withdrawValue_2 = withdrawValue_1.subtract(withdrawValue);
+            System.out.println("取款成功，剩余余额为：" + withdrawValue_2);
+            return;
+        }
+        //取款金额大于原金额
+        if (a > 0) {
+            System.out.println("取款失败，你输入的取款金额不对，请退出系统，检查余额重新取款");
+            return;
+        }
+    }
         /*//Bigcemal比较
         public boolean bigCompare(BigDecimal a, BigDecimal b){
             if(b < a){}
             return true;
         }*/
+    //取款方法
+    public void withdrawal(){
+        System.out.println("请输入存款金额，只能是整数！");
+        Scanner scanner = new Scanner(System.in);
+        BigDecimal b1 = scanner.nextBigDecimal();
+        BigDecimal b3 =withdrawValue_2.add(b1);
+        //setBalance(scanner.nextBigDecimal());
+        System.out.println("当前余额："+b3);
     }
+}
