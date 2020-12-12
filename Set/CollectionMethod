@@ -1,0 +1,38 @@
+package Test01;
+
+import java.util.LinkedList;
+
+/**
+ * @Author:XiaoYang01
+ * @Date:2020/12/12 20:50
+ * 集合知识回顾
+ * 单个值存储数据的集合，Collection，超级父接口
+ * 1，Collection常用方法介绍
+ */
+public class setTest01 {
+    //main方法
+    public static void main(String[] args){
+        //创建linkList集合
+        LinkedList<Object> linkedList = new LinkedList<>();
+        //add()往集合添加数据
+        linkedList.add(1);
+        linkedList.add(2);
+        linkedList.add(3);
+        //int size()获取集合数据大小
+        System.out.println("集合大小"+linkedList.size());
+        //contains(Object o)判断当前集合是否包含该数据
+        boolean b1 = linkedList.contains(1);
+        System.out.println(b1);
+        //romve()删除集合内的元素
+        linkedList.remove(1);
+        //isEmpty() //判断集合是否为空
+        System.out.println(linkedList.isEmpty());
+        //toArray()将集合转换成数组
+        Object[] ObjectArray = linkedList.toArray();
+        for(int a =0; a < ObjectArray.length ; a++){
+            System.out.println("数组遍历："+ObjectArray[a]);
+        }
+        //clear()清空集合
+        linkedList.clear();
+    }
+}
