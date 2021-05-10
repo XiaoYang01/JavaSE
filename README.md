@@ -1,2 +1,2 @@
-# JavaSE
-日更一些个人java学习记录
+# Java
+随笔java学习记录
