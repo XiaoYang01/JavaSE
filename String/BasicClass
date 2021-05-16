@@ -1,0 +1,50 @@
+/**
+ * @Author:XiaoYang01
+ * @Date:2020/11/8 11:26
+ */
+public class BasicClass {
+    /**
+     * 八种基本数据类型对应的方法
+     *
+     * */
+    //main方法
+    public static void main(String[] args){
+        //装箱(八种基本数据类型包装类)基本-引用，构造方法和常量方法
+        Byte bytes = new Byte((byte)1);
+        Short shorts = new Short((short) 1);
+        System.out.println(bytes.MAX_VALUE);
+        Integer integer = new Integer(124);
+        Long longs = new Long(1);
+        Float floats = new Float(3.14);
+        Double doubles = new Double(3.14);
+        Boolean booleans = new Boolean(true);
+        Character character = new Character((char)1);
+        //Char chas = new Char('男');
+        //应证
+        //拆箱（应用到基本）Number类里面拆箱方法
+        int a = integer.intValue();
+        byte b = bytes.byteValue();
+        short s = shorts.shortValue();
+        long l = longs.longValue();
+        float f = floats.floatValue();
+        double d = doubles.doubleValue();
+        boolean bo = booleans.booleanValue();
+        char c = character.charValue();
+        System.out.println("byte类型变量："+b);
+        System.out.println("short类型变量："+s);
+        System.out.println("int类型变量："+a);
+        System.out.println("long类型变量："+l);
+        System.out.println("float类型变量："+f);
+        System.out.println("double类型变量："+d);
+        System.out.println("boolean类型变量："+bo);
+        System.out.println("char类型变量："+c);
+        //Number常量
+        System.out.println("integer类的最大值"+integer.MAX_VALUE+"最小值："+integer.MIN_VALUE);
+        
+        //八大包装类的常用方法
+        //将字符串转换成数字，用于登录界面
+        String s1 = "123";
+        System.out.println(Integer.parseInt(s1));
+
+    }
+}

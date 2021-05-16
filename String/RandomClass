@@ -1,0 +1,48 @@
+/**
+ * @Author:xiaoyang01
+ * @Date：2020/11/12 17:14
+ */
+import java.util.Random;
+public class RandomClass2 {
+    /**
+     * 把5个随机数存储到数组，随机数不能重复，重复需要重新赋值！
+     * */
+    //main方法
+    public static void main(String[] args){
+        Random randoms = new Random();
+        int [] ints = new int[5];
+        //赋值
+        for(int intValue = 0; intValue < ints.length;intValue++){
+            ints[intValue] = -1;
+        }
+        int index = 0;
+        while(index<ints.length){
+            int randomValue = randoms.nextInt(6);
+            if(! contains(ints,randomValue)){
+               ints[index++] = randomValue;
+            }
+        }
+        //数组遍历输出
+        for(int a = 0; a<ints.length; a++){
+            System.out.println("随机数最终赋值结果："+ints[a]);
+        }
+    }
+    //String类的包含常用方法
+    public static boolean contains(int [] ints ,int randomValue){
+        for(int intsValue = 0; intsValue<ints.length;intsValue++){
+            if(ints[intsValue] == randomValue){
+                return true;
+            }
+        }
+        return false;
+    }
+}
+/**
+ * 导包：util包下Random随机数class
+ * main方法，创建随机数对象，定义一个五个长度的一维数组
+ * 区别随机数赋值和原始数据赋值，先for、或者while循环赋一个负值
+ * 进行随机数给数组复制，给while循环一个结束条件，给定一个index初始值0，使用while循环，
+ * 定义一个int类型进行随机数赋值，对随机数赋值进行去重，采用if判断，思考是否有sun公司方法，有contains包含方法进行查重
+ * contains方法内进行遍历比较，使用到for循环语句，当contains方法内的if为true时，不进行赋值，继续while循环，当为假
+ * 表示不重复，进行赋值接收
+ * */
